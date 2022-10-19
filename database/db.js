@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const evaluation = require('../models/evaluation');
 const { applyExtraSetup } = require('./extraSetup')
 
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASS, {
@@ -22,7 +23,12 @@ const modelDefiners = [
   require('../models/role'),
   require('../models/term'),
   require('../models/schoolGrade'),
-  require('../models/user')
+  require('../models/user'),
+  require('../models/teacher'),
+  require('../models/subject'),
+  require('../models/group'),
+  require('../models/student'),
+  require('../models/evaluation'),
   //Add more models here..
   //require('./models/item')
 

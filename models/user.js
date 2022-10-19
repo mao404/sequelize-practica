@@ -14,11 +14,11 @@ module.exports = (sequelize) => {
             allowNull: false,
             unique: true
         },
-        userName: {
+        firstName: {
             type: Sequelize.STRING(30),
             allowNull: false
         },
-        userName2: {
+        secondName: {
             type: Sequelize.STRING(30)
         },
         LastName: {
@@ -27,20 +27,37 @@ module.exports = (sequelize) => {
         },
         LastName2: {
             type: Sequelize.STRING(20),
+            allowNull: false
         },
         Telephone: {
-            type: Sequelize.INTEGER(10)
+            type: Sequelize.INTEGER(10),
+            allowNull: false
         },
         Address: {
-            type: Sequelize.STRING(50)
+            type: Sequelize.STRING(50),
+            allowNull: false
         },
         Email: {
             type: Sequelize.STRING(30),
-            isEmail: true
+            allowNull: false,
+            validate: {
+                isEmail: true
+            }
         },
         Password: {
             type: Sequelize.STRING(80),
+            allowNull: false
 
+        },
+        createdAt: {
+            type: "TIMESTAMP",
+            defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+            allowNull: false  
+        },
+        updatedAt: {
+            type: "DATETIME",
+            defaultValue: sequelize.literal("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"),
+            allowNull: false
         }
     })
 

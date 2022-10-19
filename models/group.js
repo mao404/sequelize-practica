@@ -2,16 +2,7 @@ const { Sequelize } = require("sequelize");
 
 
 module.exports = (sequelize) => {
-    const Role = sequelize.define('Role', {
-        id: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        roleName: {
-            type: Sequelize.STRING(15),
-            allowNull: false
-        },
+    const Group = sequelize.define('Group', {
         createdAt: {
             type: "TIMESTAMP",
             defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
@@ -23,6 +14,6 @@ module.exports = (sequelize) => {
             allowNull: false
         }
     })
-    return Role;
+    return Group;
     
 };

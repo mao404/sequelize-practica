@@ -2,14 +2,17 @@ const { Sequelize } = require("sequelize");
 
 
 module.exports = (sequelize) => {
-    const Role = sequelize.define('Role', {
-        id: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
+    const Student = sequelize.define('Student', {
+        Payment: {
+            type: Sequelize.STRING(2),
+            allowNull: false
         },
-        roleName: {
-            type: Sequelize.STRING(15),
+        BirthDay: {
+            type: Sequelize.DATE,
+            allowNull: false
+        },
+        Genre: {
+            type: Sequelize.STRING(1),
             allowNull: false
         },
         createdAt: {
@@ -23,6 +26,6 @@ module.exports = (sequelize) => {
             allowNull: false
         }
     })
-    return Role;
+    return Student;
     
 };

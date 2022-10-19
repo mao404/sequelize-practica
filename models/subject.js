@@ -2,14 +2,15 @@ const { Sequelize } = require("sequelize");
 
 
 module.exports = (sequelize) => {
-    const Role = sequelize.define('Role', {
+    const Subject = sequelize.define('Subject', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        roleName: {
-            type: Sequelize.STRING(15),
+        subjectName: {
+            type: Sequelize.STRING(20),
+            unique: true,
             allowNull: false
         },
         createdAt: {
@@ -23,6 +24,6 @@ module.exports = (sequelize) => {
             allowNull: false
         }
     })
-    return Role;
+    return Subject;
     
 };

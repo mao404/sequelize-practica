@@ -2,7 +2,7 @@ const { Sequelize } = require("sequelize");
 
 
 module.exports = (sequelize) => {
-    const SchoolGrade = sequelize.define('Grade', {
+    const Grade = sequelize.define('Grade', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -10,9 +10,13 @@ module.exports = (sequelize) => {
         },
         gradeName: {
             type: Sequelize.STRING(3),
-            allowNull: false
+            allowNull: false,
+            validate: {
+                //Names of at least 3 and only use letters, numbers and underscores.
+                is: /^\w{3,}$/
+            }
         }
     })
-    return SchoolGrade;
+    return Grade;
     
 };
