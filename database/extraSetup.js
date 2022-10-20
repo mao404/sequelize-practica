@@ -1,7 +1,7 @@
 
 
 function applyExtraSetup(sequelize) {
-    const { User, Role, Teacher, Grade, Subject, Student, Group } = sequelize.models;
+    const { User, Role, Teacher, Grade, Subject, Student, Group, Evaluation, Term } = sequelize.models;
 
     Role.hasOne(User, {
 
@@ -25,6 +25,11 @@ function applyExtraSetup(sequelize) {
     Subject.hasOne(Group)
     Student.hasOne(Group)
 
+    //Evaluation ForeignKeys
+    Subject.hasOne(Evaluation)
+    Student.hasOne(Evaluation)
+    Term.hasOne(Evaluation)
+    Grade.hasOne(Evaluation)
 }
 
 module.exports = { applyExtraSetup };

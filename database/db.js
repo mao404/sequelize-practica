@@ -1,5 +1,4 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const evaluation = require('../models/evaluation');
 const { applyExtraSetup } = require('./extraSetup')
 
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASS, {
